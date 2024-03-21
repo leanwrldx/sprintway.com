@@ -1,0 +1,175 @@
+/* ОСНОВНЫЕ НАСТРОЙКИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.1s;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* ------------------------------------------------------------------------------------------------------------- */
+  /* РЕДАКТИРОВАНИЕ ПРОФИЛЯ */
+  
+  .profile-settings-container {
+    max-width: 370px;
+    margin: 0 auto; 
+    margin-top: 20px; 
+  }
+    
+  .profile-image-section {
+    margin-bottom: 40px;
+  }
+    
+  .profile-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 150px; 
+    height: 150px; 
+  }
+  
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #000; 
+    color: #fff; 
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .submit:hover {
+    background-color: #333; 
+  }
+  
+  .check {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #8b8b8b;
+  }
+  
+  #map {
+    width: 100%; 
+    height: 400px;
+    margin-top: 20px;
+  }
+  
+  #delivery-address {
+    width: 100%;
+  }
+  
+  /* ------------------------------------------------------------------------------------------------------------- */
+  /* ПЛАНШЕТЫ */
+    
+  
+  @media (max-width: 1210px) {
+  
+    .navigation {
+      margin: 0;
+      margin-left: 74px;
+    }
+  
+    .nav-link {
+      margin: 10px;
+      transform: translateX(0px);
+    }
+  
+    .content-container img {
+      border-radius: 0px;
+      margin-top: 2px;
+    }
+      
+    .content-container {
+      gap: 0px;
+      justify-content: center;
+    }
+  
+    .login {
+      transform: translateX(0px);
+    }
+  
+    .label {
+      font-size: clamp(1.5rem, 1.329rem + 0.98vw, 2.5rem);
+    }
+  
+  }
+  
+  /* ------------------------------------------------------------------------------------------------------------- */
+  /* ТЕЛЕФОНЫ */
+  
+  @media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+  
+    .hamburger {
+        display: flex;
+        margin-right: 0px;
+    }
+  
+    .navigation {
+        display: none;
+        margin-left: 0px;
+    }
+    
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #000;
+        text-align: center;
+        z-index: 1001;
+    }
+  
+    .nav-link {
+        margin: 15px 0px;
+        font-size: 16px;
+    }
+  
+    .hamburger {
+        display: flex;
+    }
+    
+    .login {
+        display: none; 
+    }
+  
+    .profile-settings-container {
+        padding: 0px 20px;
+    }
+  }
