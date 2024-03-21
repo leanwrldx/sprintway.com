@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Оформление заказа</title>
+        <link rel="stylesheet" href="../static/css/settings.css">
+        <link rel="stylesheet" href="../static/css/header-body-footer.css ">
+        <link rel="shortcut icon" href="https://sun6-23.userapi.com/s/v1/ig2/0UCKPgpHSjCpjYcP-Enzc_XkMZmCXf8xhcoVHLTeMMGbrQjLijTHdxM9SdJiF92gWCBYITaegdVd6kNqShPB1Nu-.jpg?size=1117x1117&quality=95&crop=5,0,1117,1117&ava=1" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="logo">
+          <a href="/">SPRINTWAY</a>
+        </div>
+        <div class="logo-img">
+          <img src="../static/image/logo.gif">
+        </div>
+        <nav class="navigation" id="navigation">
+          <a href="/mens" class="nav-link">Мужчинам</a>
+          <a href="/womens" class="nav-link">Женщинам</a>
+          <a href="/sale" class="nav-link">Распродажа</a>
+          <a href="/about" class="nav-link">О компании</a>
+          {% if current_user.is_authenticated %}
+          <a href="/profile" class="nav-link login-link">Профиль</a>
+          {% else %}
+          <a href="/login" class="nav-link login-link">Войти</a>
+          {% endif %}
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    </header>
+
+    <!-- РЕДАКТИРОВАНИЕ ПРОФИЛЯ -->
+    <div class="profile-settings-container">
+        <div class="profile-image-section">
+          <h1 style="text-align: center;">Оформление заказа</h1>
+        </div>
+        <div class="profile-form-section">
+          <form class="profile-form" method="post">
+            <div class="form-group">
+              <label for="first-name">Имя пользователя</label>
+              <input type="text" name="username" value="{{ user.username }}" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Электронная почта</label>
+              <input type="email" name="login" value="{{ user.login }}" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Номер телефона</label>
+              <input type="text" name="phone" value="{{ user.phone }}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Адрес доставки</label>
+                <input id="delivery-address" type="text" placeholder="Адрес доставки" name="address" value="{{ user.address}}"/>
+                <div id="map"></div>
+            </div>
+            <div class="check">
+                Проверьте правильность ввода личных данных, они необходимы для получения и оформления заказа
+            </div>
+            <div class="form-group">
+              <label for="payment-method">Способ оплаты</label>
+              <select id="payment-method" name="payment_method">
+                <option value="cash">Оплата наличными</option>
+                <option value="card">Оплата картой после примерки</option>
+              </select>
+            </div>
+            <button type="submit" class="submit">Оформить заказ</button>
+          </form>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../static/js/header-footer.js"></script>
+    <script src="../static/js/hamburger.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a2ae7c16-ed1f-4cea-a3bd-02973d3bb0d6&lang=ru_RU" type="text/javascript"></script>
+    <script>
+        ymaps.ready(init);
+
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [54.74, 55.96], // Координаты центра карты (Уфа)
+                zoom: 12
+            });
+
+            // Слушатель клика по карте
+            myMap.events.add('click', function (e) {
+                var coords = e.get('coords');
+
+                // Очищаем все предыдущие метки
+                myMap.geoObjects.removeAll();
+
+                // Создаем метку по координатам клика
+                var myPlacemark = new ymaps.Placemark(coords);
+                myMap.geoObjects.add(myPlacemark);
+
+                // Выполняем обратное геокодирование для получения адреса
+                ymaps.geocode(coords).then(function (res) {
+                    var firstGeoObject = res.geoObjects.get(0);
+                    var address = firstGeoObject.getAddressLine();
+                    
+                    // Устанавливаем адрес в input
+                    document.getElementById('delivery-address').value = address;
+                });
+            });
+        }
+        
+    </script>
+
+    </body>
+</html>

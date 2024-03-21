@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEADER</title>
+    <link rel="stylesheet" href="../static/css/header-body-footer.css">
+</head>
+<body>
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="logo">
+            <a href="/">SPRINTWAY</a>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="/mens" class="nav-link">Мужчинам</a>
+            <a href="/womens" class="nav-link">Женщинам</a>
+            <a href="/sale" class="nav-link">Распродажа</a>
+            <a href="/about" class="nav-link">О компании</a>
+            {% if current_user.is_authenticated %}
+            <a href="/profile" class="nav-link login-link">Профиль</a>
+            {% else %}
+            <a href="/login" class="nav-link login-link">Войти</a>
+            {% endif %}
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- JAVASCRIPT -->
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/header-footer.js"></script>
+</body>
+</html>
