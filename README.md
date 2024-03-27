@@ -1,1 +1,1 @@
-# sprintway.com
+# sprintway.ru
