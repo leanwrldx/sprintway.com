@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="shortcut icon" href="https://sun6-23.userapi.com/s/v1/ig2/0UCKPgpHSjCpjYcP-Enzc_XkMZmCXf8xhcoVHLTeMMGbrQjLijTHdxM9SdJiF92gWCBYITaegdVd6kNqShPB1Nu-.jpg?size=1117x1117&quality=95&crop=5,0,1117,1117&ava=1" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- УПРАВЛЕНИЕ УЧЕТНЫМИ ЗАПИСЯМИ -->
+    <div class="admin-panel">
+        <h1>Управление учетными записями</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя пользователя</th>
+                    <th>Логин (эл. почта)</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.login }}</td>
+                    <td>
+                        <form action="/delete_user/{{ user.id }}" method="post">
+                            <button class="delete-button" type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>            
+        </table>
+        
+        <h1>Управление товарами</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Размер</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.size }}</td>
+                    <td>
+                        <form action="/delete_product/{{ product.id }}" method="post">
+                            <button class="delete-button" type="submit">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <h1>Добавить товар</h1>
+        <form action="{{ url_for('add_product') }}" method="post" enctype="multipart/form-data">
+            <label for="name">Имя товара:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="price">Цена:</label>
+            <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+            <label for="size">Размер:</label>
+            <input type="text" id="size" name="size"><br>
+            <label for="image">Изображение:</label>
+            <input type="file" id="image" name="image"><br>
+            <button type="submit" style="background-color: rgb(0, 173, 0);">Добавить товар</button>
+        </form>        
+    </div>
+    
+
+    <!-- JAVASCRIPT -->
+    <script src="../static/js/header-footer.js"></script>
+    <script src="../static/js/hamburger.js"></script>
+
+</body>
+</html>

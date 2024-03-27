@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал Sprintway. Тренды в мире спортивной обуви</title>
+    <link rel="stylesheet" href="../static/css/header-body-footer.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
+    <link rel="shortcut icon" href="https://sun6-23.userapi.com/s/v1/ig2/0UCKPgpHSjCpjYcP-Enzc_XkMZmCXf8xhcoVHLTeMMGbrQjLijTHdxM9SdJiF92gWCBYITaegdVd6kNqShPB1Nu-.jpg?size=1117x1117&quality=95&crop=5,0,1117,1117&ava=1" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+      <div class="logo">
+          <a href="/">SPRINTWAY</a>
+      </div>
+      <div class="logo-img">
+        <img src="../static/image/logo.gif">
+      </div>
+      <nav class="navigation" id="navigation">
+          <a href="/mens" class="nav-link">Мужчинам</a>
+          <a href="/womens" class="nav-link">Женщинам</a>
+          <a href="/sale" class="nav-link">Распродажа</a>
+          <a href="/about" class="nav-link">О компании</a>
+          {% if current_user.is_authenticated %}
+          <a href="/profile" class="nav-link login-link">Профиль</a>
+          {% else %}
+          <a href="/login" class="nav-link login-link">Войти</a>
+          {% endif %}
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </header>
+
+    <!-- БАННЕР -->
+    <div class="banner-block">
+        <img src="../static/image/bonuscard.png" alt="banner">
+    </div>
+
+    <!-- ТРЕНДЫ В МИРЕ СПОРТИВНОЙ ОБУВИ -->
+    <div class="content">
+        <div class="text-container">
+          <p><b>Особое объявление для наших ценителей кроссовок</b></p><br>
+          <p>Мы рады поделиться волнующими новостями о нашей эксклюзивной бонусной карте «SprintPass», предназначенной для наших самых преданных покупателей. Эта программа разработана с целью вознаграждения наших клиентов через систему скидок, специальные предложения и доступ к эксклюзивным коллекциям.</p>
+        </div>
+        <div class="images-container">
+          <img src="../static/image/bonus-card.png" alt="Возвращение классики">
+        </div>
+    </div>
+    <div class="content">
+        <div class="text-container">
+            <p><b>Текущий статус: Эксклюзивное пилотное тестирование</b></p><br>
+            <p>На данный момент программа «SprintPass» находится на стадии пилотного тестирования с участием ограниченного числа участников. Этот этап позволяет нам собрать обратную связь и тщательно оценить все аспекты программы для того, чтобы наше предложение было максимально адаптировано к потребностям и пожеланиям наших клиентов.</p><br>
+            <p><b>Почему нельзя оформить бонусную карту сейчас?</b></p><br>
+            <p>Мы стремимся к тому, чтобы программа лояльности была не просто хороша, а идеально соответствовала ожиданиям наших покупателей. Пилотное тестирование – это ключевой этап, который помогает нам убедиться, что мы можем предложить безупречный сервис и реальную ценность для каждого участника программы. Пока что участие в программе возможно только по приглашениям, чтобы обеспечить тщательный анализ и улучшение всех ее элементов.</p><br>
+            <p><b>Как стать участником программы в будущем?</b></p><br>
+            <p>Мы с нетерпением ждем момента, когда сможем открыть программу «SprintPass» для всех наших покупателей. Для того чтобы не пропустить старт открытой регистрации и быть среди первых, кто узнает о возможности присоединения к программе, подпишитесь на наши новости и следите за обновлениями на сайте и в социальных сетях.</p>
+        </div>
+    </div>
+
+    <!-- ФУТЕР -->
+    <hr class="hr">
+    <div id="footer-placeholder"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../static/js/header-footer.js"></script>
+    <script src="../static/js/hamburger.js"></script>
+
+</body>
+</html>

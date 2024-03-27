@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPRINTWAY, магазин кроссовок</title>
+        <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="stylesheet" href="../static/css/header-body-footer.css">
+        <link rel="shortcut icon" href="https://sun6-23.userapi.com/s/v1/ig2/0UCKPgpHSjCpjYcP-Enzc_XkMZmCXf8xhcoVHLTeMMGbrQjLijTHdxM9SdJiF92gWCBYITaegdVd6kNqShPB1Nu-.jpg?size=1117x1117&quality=95&crop=5,0,1117,1117&ava=1" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      
+    <!-- ХЕДЕР -->
+    <header class="header">
+      <div class="logo">
+          <a href="/">SPRINTWAY</a>
+      </div>
+      <div class="logo-img">
+        <img src="../static/image/logo.gif">
+      </div>
+      <nav class="navigation" id="navigation">
+          <a href="/mens" class="nav-link">Мужчинам</a>
+          <a href="/womens" class="nav-link">Женщинам</a>
+          <a href="/sale" class="nav-link">Распродажа</a>
+          <a href="/about" class="nav-link">О компании</a>
+          {% if current_user.is_authenticated %}
+          <a href="/profile" class="nav-link login-link">Профиль</a>
+          {% else %}
+          <a href="/login" class="nav-link login-link">Войти</a>
+          {% endif %}
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </header>
+
+    <!-- КОНТЕЙНЕР МУЖЧИНЫ-ЖЕНЩИНЫ -->
+    <div class="content-container">
+        <div class="image-container">
+          <a href="/mens">
+            <img src="../static/image/men.jpg" alt="Men's Fashion">
+          </a>
+          <div class="label">Мужчинам</div>
+        </div>
+        <div class="image-container">
+          <a href="/womens">
+            <img src="../static/image/women.jpg" alt="Women's Fashion">
+          </a>
+          <div class="label">Женщинам</div>
+        </div>
+    </div>
+
+    <!-- РАСПРОДАЖА -->
+    <a href="/sale">
+      <div class="sale-section">
+        <div class="sale-item">
+          <a href="/sale"><span class="sale-text">Распродажа 10.03.2024 - 11.03.2024</span></a>
+        </div>
+      </div>
+    </a>
+    <!-- <br><br><br> -->
+    
+    <!-- КАРТОЧКИ ТОВАРОВ -->
+    <div class="products-container">
+      <h2>Популярные товары</h2>
+      <div class="products">
+        {%for el in product%}
+        <div class="product">
+          <img src="{{el.image_url}}" alt="adidas Originals">
+          <div class="product-rows">
+            <div class="left-row">
+              <p class="brand">{{el.name}}</p>
+              <p class="size">
+                Размер: 
+                {% for item in size[el.id-1] %}
+                  {{item}}
+                {% endfor %}
+              </p>
+              <p class="price">{{ el.price }} ₽</p>
+            </div>
+            <div class="right-row">
+              {% if el.id in favorite_product_ids %}
+              <img src="../static/image/cart-on.png" alt="cart" class="cart" onclick="toggleFavorite('{{ el.id }}', event)">
+              {% else %}
+              <img src="../static/image/cart-off.png" alt="cart" class="cart" onclick="toggleFavorite('{{ el.id }}', event)">
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div> 
+
+    <!-- СООБЩЕНИЕ О ДОБАВЛЕНИИ/УДАЛЕНИИ ТОВАРА В/ИЗ ИЗБРАННОЕ(-ГО) -->
+    <div id="message-container"></div>
+
+    <!-- БАННЕР -->
+    <div class="membership-card-banner">
+        <img src="../static/image/membership-card-background.png" alt="Membership Card" class="banner-image">
+        <div class="banner-content">
+            <h2>Бонусная карта магазина</h2>
+            <button class="info-button"><a href="/bonuscard">Подробная информация</a></button>
+        </div>
+    </div>
+
+    <!-- ДОЛЯМИ -->
+    <div class="pay-later-container">
+      <h2>Новый способ оплаты товаров. Скоро на сайте.</h2>
+        <div class="pay-later-content">
+          <img src="../static/image/dolyame-img.png" alt="Логотип компании" class="pay-later-logo">
+          <p class="pay-later-text">Носите сейчас - платите потом</p>
+        </div>
+    </div>
+
+    <!-- СЛАЙДЕР -->
+    <div class="slider-container">
+        <button class="slide-arrow prev-arrow" style="opacity: 0%;">
+            <img src="../static/image/arrow-left.png" alt="arrow-left">
+        </button>
+        <div class="slider">
+          <a href="/firstblog" class="slide" style="background-image: url('../static/image/slide-main-1.png'); border-radius: 10px 0px 0px 10px; "></a>
+          <a href="/secondblog" class="slide" style="background-image: url('../static/image/slide-main-2.png'); border-radius: 0px 10px 10px 0px;"></div></a>
+        </div>
+        <button class="slide-arrow next-arrow" style="opacity: 0%;">
+            <img src="../static/image/arrow-right.png" alt="arrow-right">
+        </button>
+    </div>
+
+    <!-- ФУТЕР -->
+    <hr class="hr">
+    <div id="footer-placeholder"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../static/js/header-footer.js"></script>
+    <script src="../static/js/hamburger.js"></script>
+    <script src="../static/js/slider.js"></script>
+    <script src="../static/js/dynamic.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Журнал Sprintway. Тренды в мире спортивной обуви</title>
+    <link rel="stylesheet" href="../static/css/header-body-footer.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
+    <link rel="shortcut icon" href="https://sun6-23.userapi.com/s/v1/ig2/0UCKPgpHSjCpjYcP-Enzc_XkMZmCXf8xhcoVHLTeMMGbrQjLijTHdxM9SdJiF92gWCBYITaegdVd6kNqShPB1Nu-.jpg?size=1117x1117&quality=95&crop=5,0,1117,1117&ava=1" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+      <div class="logo">
+          <a href="/">SPRINTWAY</a>
+      </div>
+      <div class="logo-img">
+        <img src="../static/image/logo.gif">
+      </div>
+      <nav class="navigation" id="navigation">
+          <a href="/mens" class="nav-link">Мужчинам</a>
+          <a href="/womens" class="nav-link">Женщинам</a>
+          <a href="/sale" class="nav-link">Распродажа</a>
+          <a href="/about" class="nav-link">О компании</a>
+          {% if current_user.is_authenticated %}
+          <a href="/profile" class="nav-link login-link">Профиль</a>
+          {% else %}
+          <a href="/login" class="nav-link login-link">Войти</a>
+          {% endif %}
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </header>
+
+    <!-- БАННЕР -->
+    <div class="banner-block">
+        <img src="../static/image/slide-main-1.png" alt="banner">
+    </div>
+
+    <!-- ТРЕНДЫ В МИРЕ СПОРТИВНОЙ ОБУВИ -->
+    <div class="content">
+        <div class="text-container">
+          <p>В мире спортивной обуви модные тенденции меняются почти так же быстро, как и в мире высокой моды. Сегодня мы поговорим о самых актуальных тенденциях сезона, которые помогут вам не только чувствовать себя комфортно во время занятий спортом или прогулок, но и выглядеть стильно и современно.</p><br>
+          <p><b>1. Возвращение классики</b></p><br>
+          <p>Классические модели, такие как Adidas Stan Smith или Nike Air Force 1, вновь на пике популярности. Эти кроссовки легко узнаваемы, их любят и ценят за комфорт и универсальность. Они отлично сочетаются как с спортивной, так и с повседневной одеждой, делая любой образ актуальным и модным.</p>
+        </div>
+        <div class="images-container">
+          <img src="../static/image/trend-1.png" alt="Возвращение классики">
+        </div>
+    </div>
+    <div class="content">
+        <div class="text-container">
+            <p><b>2. Яркие цвета и необычные сочетания</b></p><br>
+            <p>Смелые цветовые решения и нестандартные сочетания – еще один тренд текущего сезона. Бренды экспериментируют с палитрой, предлагая яркие кроссовки в неоновых, пастельных или металлических оттенках. Это отличный способ добавить акцент в ваш гардероб и выделиться из толпы.</p>
+        </div>
+        <div class="images-container">
+            <img src="../static/image/trend-2.png" alt="Яркие цвета и необычные сочетания">
+        </div>
+    </div>
+    <div class="content">
+        <div class="text-container">
+            <p><b>3. Технологии и инновации</b></p><br>
+            <p>Современные технологии не стоят на месте, и в мире спортивной обуви они находят все новое применение. Улучшенные модели для бега с повышенной амортизацией, вентиляцией и поддержкой стопы помогут вам добиться лучших результатов и избежать травм. Технологичные кроссовки – это не только комфорт, но и ваша забота о здоровье.</p>
+        </div>
+        <div class="images-container">
+            <img src="../static/image/trend-3.png" alt="Технологии и инновации">
+        </div>
+    </div>
+    <div class="content">
+        <div class="text-container">
+            <p><b>4. Эко-тренды</b></p><br>
+            <p>Сознательное потребление становится все более популярным, и это касается не только выбора продуктов питания или косметики, но и спортивной обуви. Бренды активно экспериментируют с переработанными материалами и разрабатывают новые, экологически чистые технологии производства. Поэтому, если вам важно не только качество и удобство, но и экологичность продукции, обратите внимание на коллекции из переработанных материалов.</p>
+        </div>
+        <div class="images-container">
+            <img src="../static/image/trend-4.png" alt="Эко-тренды">
+        </div>
+    </div>
+
+    <script src="../static/js/header-footer.js"></script>
+    <script src="../static/js/hamburger.js"></script>
+
+</body>
+</html>
