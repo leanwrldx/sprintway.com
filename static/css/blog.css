@@ -1,0 +1,115 @@
+/* БАННЕР */
+.banner-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-block img {
+    display: block;
+    padding: 30px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 1270px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 60px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-container, .images-container {
+    flex: 1 1 50%; 
+    padding: 15px;
+    font-size: 24px;
+}
+
+.images-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+
+
+
+
+
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Центрирование содержимого по вертикали */
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    max-width: 1210px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование всего блока на странице */
+    width: 100%; /* Для адаптивности */
+}
+  
+.text-section, .image-section {
+    flex: 1 1 50%; /* Для того чтобы обе секции занимали по половине ширины контейнера */
+    padding: 20px;
+}
+
+.text-section {
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.image-section {
+    text-align: center; /* Выравнивание изображений по центру */
+}
+
+.image-section img {
+    max-width: 100%; /* Максимальная ширина изображения */
+    height: auto; /* Высота изображения изменяется автоматически, чтобы сохранить пропорции */
+    margin-bottom: 20px; /* Отступ между изображениями */
+}
+
+@media (max-width: 768px) {
+    .text-section, .image-section {
+        flex-basis: 100%; /* На экранах меньше 768px ширина каждой секции становится 100% */
+    }
+
+    .text-section {
+        text-align: center; /* Центрирование текста на маленьких экранах */
+    }
+}
+
+
+
+@media (max-width: 1240px) {
+    .banner-block img {
+        padding: 20px;
+    }
+    .text-container, .images-container {
+        padding: 20px;
+    }
+    .banner-block img {
+        border-radius: 30px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 1060px) {
+    .banner-block img {
+        width: auto;
+        height: auto;
+    }
+} 
+
+@media (max-width: 768px) {
+    .text-container, .images-container {
+        flex-basis: 100%;
+        font-size: 16px;
+        padding: 20px;
+    }
+}
+  
